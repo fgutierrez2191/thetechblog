@@ -39,5 +39,16 @@ router.get('/', (req, res) => {
     });
 });
 
+//route to render login page
+router.get('/login', (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect('/');
+    return;
+  }
+
+  res.render('login');
+});
+
+
 
 module.exports = router;
