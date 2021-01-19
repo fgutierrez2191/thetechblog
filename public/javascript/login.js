@@ -1,4 +1,3 @@
-//const { response } = require("express");
 
 async function signupFormHandler(event) {
     event.preventDefault();
@@ -8,7 +7,7 @@ async function signupFormHandler(event) {
     const password = document.querySelector('#password-signup').value.trim();
   
     if (username && email && password) {
-      await fetch('/api/users', {
+      const response = await fetch('/api/users', {
         method: 'post',
         body: JSON.stringify({
           username,
@@ -17,7 +16,7 @@ async function signupFormHandler(event) {
         }),
         headers: { 'Content-Type': 'application/json' }
       });
-      //to check the response status
+      console.log(response);      //to check the response status
       if (response.ok) {
       console.log(success);
       } else {
@@ -32,25 +31,25 @@ async function signupFormHandler(event) {
   async function loginFormHandler(event) {
     event.preventDefault();
   
-    const email = document.querySelector('#email-login').value.trim();
+    const username = document.querySelector('#email-login').value.trim();
     const password = document.querySelector('#password-login').value.trim();
   
-    if (email && password) {
+    //if (email && password) {
       const response = await fetch('/api/users/login', {
         method: 'post',
         body: JSON.stringify({
-          email,
+          username,
           password
         }),
         headers: { 'Content-Type': 'application/json' }
       });
-  
+      console.log(response); 
       if (response.ok) {
         document.location.replace('/');
       } else {
         alert(response.statusText);
       }
-    }
+   // }
   }
   
   document.querySelector('.login-form').addEventListener('submit', loginFormHandler);

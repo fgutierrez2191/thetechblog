@@ -52,6 +52,7 @@ router.post('/', (req, res) => {
     password: req.body.password
   })
     .then(dbUserData => {
+      console.log(dbUserData);
       req.session.save(() => {
         req.session.user_id = dbUserData.id;
         req.session.username = dbUserData.username;
@@ -68,11 +69,13 @@ router.post('/', (req, res) => {
 //route to login 
 router.post('/login', (req, res) => {
   // expects {email: 'lernantino@gmail.com', password: 'password1234'}
+  console.log(req.body);
   User.findOne({
-    where: {
-      email: req.body.email
+    where: { 
+      username: req.body.username
     }
   }).then(dbUserData => {
+    console.log(dbUserData);
     if (!dbUserData) {
       res.status(400).json({ message: 'No user with that email address!' });
       return;
