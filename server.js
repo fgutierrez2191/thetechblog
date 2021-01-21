@@ -5,7 +5,7 @@ const exphbs = require('express-handlebars');
 const helpers = require('./utils/helpers');
 
 //may or may not need this?
-const routes = require('./controllers');
+//const routes = require('./controllers');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -25,7 +25,7 @@ const sess = {
 
 app.use(session(sess));
 
-const hbs = exphbs.create({ helpers });
+const hbs = exphbs.create({helpers});
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
