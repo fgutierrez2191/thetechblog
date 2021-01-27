@@ -11,6 +11,9 @@
   To use the app online, simply use the Heroku link below. 
   To deploy it locally, you must have node js and mysql installed on your machine. 
 
+  ## Deployed Link
+  [https://nameless-lowlands-12569.herokuapp.com/]
+
   ## Contributors
   Felix Gutierrez
 
@@ -27,4 +30,4 @@
 
 ## Walk-through
 
-[Walk-through video]()
+[Walk-through video](https://drive.google.com/file/d/10kM9ZyD9KDHk15W9bHVJP_RLsovEBBya/view)
